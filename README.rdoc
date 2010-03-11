@@ -1,32 +1,43 @@
 = paperclip-supercrop
 
-* http://github.com/#{github_username}/#{project_name}
+* http://github.com/teejayvanslyke/paperclip-supercrop
 
 == DESCRIPTION:
 
-FIX (describe your package)
+A resize and crop plugin for Paperclip which allows specifying a compass-direction gravity option.  
+
+Originally developed to fix the dreaded chopped-off-heads problem when uploading user content.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* Well, I haven't actually tested this in a Rails app yet.  I'll let you know how it works :).
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+  has_attached_file :photo, :styles => { 
+    :long => { 
+      :width   => 30, 
+      :height  => 100 }, 
+    :wide => { 
+      :width   => 100,
+      :height  => 30,
+      :gravity => :north }
+    }, :processors => [ :supercrop ]
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* paperclip
+* RMagick
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+  sudo gem install paperclip-supercrop
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2010 FIXME full name
+Copyright (c) 2010 T.J. VanSlyke
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
