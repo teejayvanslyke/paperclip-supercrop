@@ -10,7 +10,8 @@ module Paperclip
 
     VERSION = '0.0.1'
 
-    def initialize(file, options={})
+    def initialize(file, options={}, attachment = nil)
+      super
       @file    = file
       @options = options
     end
@@ -59,7 +60,7 @@ module Paperclip
     end
 
     def image
-      Magick::Image.read(@file).first
+      Magick::Image.read(@file.path).first
     end
 
     def basename
